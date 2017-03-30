@@ -6,7 +6,8 @@ try:
     import pypandoc
     long_description = pypandoc.convert('README.md', 'rst')
 except (IOError, ImportError):
-    long_description = open('README.md').read()
+    import codecs
+    long_description = codecs.open('README.md', 'r', 'utf-8').read()
 
 with open('requirements.txt') as f:
     requirements = f.read().splitlines()
